@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+    <model name="tube">
+      <static>true</static>
+      <pose>0 0 0 0 0 0</pose>
+      <link name="tube_link">
+
+        <visual name="visual-2">
+          <!-- <pose>2.0 0 0.3 0 0 1.57</pose> -->
+          <geometry>
+            <mesh>
+              <uri>file:///home/admin1/kasytwin/src/control_1/description/real_life.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.7 0.7 0.7 1</ambient>
+            <diffuse>0.7 0.7 0.7 1</diffuse>
+            <specular>0.5 0.5 0.5 1</specular>
+          </material>
+        </visual>
+
+        <collision name="collision-2">
+          <geometry>
+            <mesh>
+              <uri>file:///home/admin1/kasytwin/src/control_1/description/real_life.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>0.0</mu>      <!-- Coefficient of friction (0 = frictionless) -->
+                <mu2>0.0</mu2>    <!-- Secondary friction coefficient -->
+                <slip1>1.0</slip1>  <!-- Force-dependent slip direction 1 -->
+                <slip2>1.0</slip2>  <!-- Force-dependent slip direction 2 -->
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>1000000.0</kp>  <!-- Contact stiffness -->
+                <kd>1.0</kd>         <!-- Contact damping -->
+                <min_depth>0.001</min_depth>
+              </ode>
+            </contact>
+          </surface>
+        </collision>
+      </link>
+    </model>
+</sdf>

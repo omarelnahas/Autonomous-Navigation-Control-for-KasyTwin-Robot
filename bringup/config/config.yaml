@@ -1,0 +1,86 @@
+reference_manager:
+  ros__parameters:
+    roll_topic: /gazebo/roll # Please change this according to your roll topic 
+    yaw_topic: /gazebo/yaw # please change this according to your yaw topic 
+    reference_topic: /control/reference # No need to change
+    
+    # Reference source configuration
+    use_config_reference: true      
+    config_reference_roll: 0.0      
+    config_reference_yaw: 0.0   
+    auto_activate: true             # Automatically activate on startup
+    
+
+
+pid_controller:
+  ros__parameters:
+    roll_topic: /gazebo/roll # Please change this according to your roll topic 
+    yaw_topic: /gazebo/yaw # please change this according to your yaw topic 
+    reference_topic: /control/reference # No need to change
+    roll_control_topic: /control/roll_output # No need to change
+    yaw_control_topic: /control/yaw_output # No need to change
+    control_frequency: 50.0
+    
+    # Tolerance (in radians)
+    roll_tolerance: 0.01  # Change it according to your needs (0.57 degrees)     
+    yaw_tolerance: 0.01  # Change it according to your needs (0.57 degrees) 
+    
+    # Roll PID gains
+    roll_kp: 0.8
+    roll_ki: 0.02
+    roll_kd: 0.0
+    
+    # Yaw PID gains
+    yaw_kp: 0.8
+    yaw_ki: 0.02
+    yaw_kd: 0.0
+
+motor_command:
+  ros__parameters:
+    roll_control_topic: /control/roll_output # No need to change
+    yaw_control_topic: /control/yaw_output # No need to change
+    cmd_vel_topic: karo/pid/cmd_vel # Please change this to your desired velocity command topic used by your robot
+    max_angular_vel: 1.0
+    linear.x: 0.3 # Forward linear velocity
+
+
+pca_node:
+ ros__parameters:
+  yaw_topic: /gazebo/yaw # Please change this according to your yaw topic
+  pointcloud_topic: /karo/alignPoints # Please change to the topic where 2d pointcloud is published
+  centering_threshold: 0.03 # in meters
+  centering_gain: 1.0
+  max_correction_rad: 0.5
+
+
+topic_health_monitor:
+  ros__parameters:
+    # General monitoring settings
+    health_check_rate_hz: 1.0        # Check health once per second
+    enable_safety_actions: true       # Enable automatic safety stops
+    publish_diagnostics: true         # Publish to /diagnostics topic
+    motor_stop_service: "/set_linear_x"  # Service to stop robot
+    
+    # ===========================
+    # POINT CLOUD TOPIC MONITORING
+    # ===========================
+    pointcloud_topic: "/karo/alignPoints"
+    pointcloud_timeout_sec: 2.0       
+    pointcloud_expected_rate_hz: 1.0 
+    pointcloud_is_critical: true      
+    
+    # ===========================
+    # YAW TOPIC MONITORING
+    # ===========================
+    yaw_topic: "/gazebo/yaw"
+    yaw_timeout_sec: 2.0             
+    yaw_expected_rate_hz: 7.0       
+    yaw_is_critical: true             
+    
+    # ===========================
+    # ROLL TOPIC MONITORING
+    # ===========================
+    roll_topic: "/gazebo/roll"
+    roll_timeout_sec: 2.0             
+    roll_expected_rate_hz: 7.0       
+    roll_is_critical: false           
