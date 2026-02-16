@@ -9,7 +9,7 @@
           <!-- <pose>2.0 0 0.3 0 0 1.57</pose> -->
           <geometry>
             <mesh>
-              <uri>file:///home/admin1/kasytwin/src/control_1/description/real_life.stl</uri>
+              <uri>real_life.stl</uri>
             </mesh>
           </geometry>
           <material>
@@ -22,7 +22,7 @@
         <collision name="collision-2">
           <geometry>
             <mesh>
-              <uri>file:///home/admin1/kasytwin/src/control_1/description/real_life.stl</uri>
+              <uri>real_life.stl</uri>
             </mesh>
           </geometry>
           <surface>
