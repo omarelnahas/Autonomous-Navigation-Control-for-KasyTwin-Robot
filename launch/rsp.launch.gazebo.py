@@ -47,12 +47,12 @@ def generate_launch_description():
         parameters=[params],
     )
 
-    # Static transform: world -> odom
     node_world_to_odom = Node(
         package='tf2_ros',
         executable='static_transform_publisher',
         name='world_to_odom_publisher',
-        arguments=['0', '0', '0', '0', '0', '0', 'world', 'odom']
+        arguments=['0', '0', '0', '0', '0', '0', 'world', 'odom'],
+        parameters=[{'use_sim_time': use_sim_time}]  
     )
 
     # Convert odometry to TF (odom -> base_link)

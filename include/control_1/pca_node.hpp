@@ -79,7 +79,7 @@ private:
     bool invalid_walls_timer_started_;
     const std::chrono::milliseconds INVALID_WALLS_TIMEOUT_{1000}; // Adjust duration as needed
     
-    // NEW: Temporal filtering state
+    // Temporal filtering state
     double previous_base_angle_;
     double previous_yaw_reference_;
     bool first_frame_;

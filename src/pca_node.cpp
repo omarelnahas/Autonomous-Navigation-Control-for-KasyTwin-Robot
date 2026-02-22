@@ -139,7 +139,7 @@ void PCA::PCA_transform(const sensor_msgs::msg::PointCloud2::SharedPtr msg) {
     PCAResult right_result = computePCA(right_side);
 
     // Validate results based on confidence
-    const double CONF_THRESH = 45.0;
+    const double CONF_THRESH = 30.0;
     bool left_valid = left_result.confidence > CONF_THRESH;
     bool right_valid = right_result.confidence > CONF_THRESH;
 
