@@ -257,7 +257,7 @@ cd ~/sewer_robot_ws/src
 ### 2. Clone Repository
 
 ```bash
-git clone https://github.com/omarelnahas/Autonomous-Navigation-Control-for-KasyTwin-Robot. control_1
+git clone https://github.com/omarelnahas/Autonomous-Navigation-Control-for-KasyTwin-Robot.git control_1
 ```
 
 ### 3. Build Package
