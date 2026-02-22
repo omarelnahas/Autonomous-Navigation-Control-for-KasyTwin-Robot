@@ -80,13 +80,8 @@ add_executable(topic_health_monitor_node
   ament_target_dependencies(topic_health_monitor_node
    rclcpp std_msgs sensor_msgs diagnostic_msgs std_srvs 
   )
-
+  
 # Python nodes don't compile, so no add_executable needed
-install(PROGRAMS
-  scripts/kasytwin_pose_bridge.py
-  DESTINATION lib/${PROJECT_NAME}
-)
-
 install(PROGRAMS
   scripts/odom_to_tf.py
   DESTINATION lib/${PROJECT_NAME}
