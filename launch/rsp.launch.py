@@ -107,14 +107,6 @@ def generate_launch_description():
         output='screen'
     )
 
-    kasytwin_pose_bridge_spawner = Node(
-        package='control_1',
-        executable='kasytwin_pose_bridge.py',
-        name='kasytwin_pose_bridge',
-        output='screen',
-        parameters=[{'use_sim_time': use_sim_time}],
-    )
-
     return LaunchDescription([
         DeclareLaunchArgument(
             'use_sim_time',
@@ -130,5 +122,4 @@ def generate_launch_description():
         laserscan_to_pointcloud_spawner,
         pca_node_spawner,
         health_monitor_process,
-        kasytwin_pose_bridge_spawner,
     ])
